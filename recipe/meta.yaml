@@ -19,13 +19,13 @@ build:
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
     - pip
     - cython  # [not win]
+    - typing_extensions
   run:
     - python
     - dataclasses >=0.6  # [py36]
