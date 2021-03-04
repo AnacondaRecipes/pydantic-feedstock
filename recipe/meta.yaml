@@ -33,7 +33,6 @@ requirements:
 test:
   imports:
     - {{ name }}
-    - typing_extensions
 
 about:
   home: {{ repo_url }}
