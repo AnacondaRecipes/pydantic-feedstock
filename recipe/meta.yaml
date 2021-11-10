@@ -23,6 +23,8 @@ requirements:
     - python
     - pip
     - cython  # [not win]
+    - setuptools
+    - wheel
   run:
     - python
     - dataclasses >=0.6  # [py37]
@@ -31,6 +33,10 @@ requirements:
 test:
   imports:
     - {{ name }}
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: {{ repo_url }}
