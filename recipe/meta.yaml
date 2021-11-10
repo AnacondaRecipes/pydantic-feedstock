@@ -40,7 +40,7 @@ about:
   summary: Data validation and settings management using python type hinting
   description: |
     Data validation and settings management using python type hinting.
-    See documentation <{{ docs_url }}> for more details.
+    See documentation <{{ docs_url }}> for more details. 
   doc_url: {{ docs_url }}
   dev_url: {{ repo_url }}
 
