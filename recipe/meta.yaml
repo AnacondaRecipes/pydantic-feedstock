@@ -1,5 +1,5 @@
 {% set name = "pydantic" %}
-{% set version = "1.8.2" %}
+{% set version = "1.9.0" %}
 {% set repo_url = "https://github.com/samuelcolvin/pydantic" %}
 {% set docs_url = "https://pydantic-docs.helpmanual.io" %}
 
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 26464e57ccaafe72b7ad156fdaa4e9b9ef051f69e175dbbb463283000c05ab7b
+  sha256: 742645059757a56ecd886faf4ed2441b9c0cd406079c2b4bee51bcc3fbcd510a
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
-  skip: true  # [py<36]
+  skip: true  # [py2k or py35]
 
 requirements:
   build:
@@ -22,21 +22,17 @@ requirements:
   host:
     - python
     - pip
-    - cython  # [not win]
     - setuptools
     - wheel
+    - cython
   run:
     - python
-    - dataclasses >=0.6  # [py37]
+    - dataclasses >=0.6  # [py36]
     - typing-extensions >=3.7.4.3
 
 test:
   imports:
     - {{ name }}
-  requires:
-    - pip
-  commands:
-    - pip check
 
 about:
   home: {{ repo_url }}
@@ -46,7 +42,7 @@ about:
   summary: Data validation and settings management using python type hinting
   description: |
     Data validation and settings management using python type hinting.
-    See documentation <{{ docs_url }}> for more details. 
+    See documentation <{{ docs_url }}> for more details.
   doc_url: {{ docs_url }}
   dev_url: {{ repo_url }}
 
