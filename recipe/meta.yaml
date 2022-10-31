@@ -45,6 +45,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  license_url: https://github.com/{{ name }}/{{ name }}/blob/v{{ version }}/LICENSE
   summary: Data validation and settings management using python type hinting
   description: |
     Data validation and settings management using python type hinting.
