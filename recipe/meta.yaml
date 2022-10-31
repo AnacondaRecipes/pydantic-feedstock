@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
-  skip: true  # [py<36]
+  skip: true  # [py<=36]
 
 requirements:
   build:
@@ -28,7 +28,7 @@ requirements:
   run:
     - python
     - dataclasses >=0.6  # [py<37]
-    - typing-extensions >=3.7.4.3
+    - typing-extensions >=4.1.0
 
 test:
   imports:
