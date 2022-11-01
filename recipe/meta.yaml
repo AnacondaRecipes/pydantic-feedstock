@@ -27,10 +27,9 @@ requirements:
     - wheel
   run:
     - python
-    - dataclasses >=0.6  # [py<37]
-    # optional deps
-    - email-validator >=1.0.3
     - typing-extensions >=4.1.0
+  run_constrained:
+    - email-validator >=1.0.3
 
 test:
   imports:
