@@ -14,14 +14,14 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
-  skip: true  # [py<=36]
+  skip: true  # [py<37]
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - python
-    - cython
+    - cython >=0.29.32
     - pip
     - setuptools
     - wheel
