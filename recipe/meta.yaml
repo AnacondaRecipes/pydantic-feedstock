@@ -50,6 +50,7 @@ about:
     Data validation and settings management using python type hinting.
     See documentation <{{ docs_url }}> for more details.
   doc_url: {{ docs_url }}
+  doc_source_url: https://github.com/pydantic/pydantic/tree/main/docs
   dev_url: {{ repo_url }}
 
 extra:
