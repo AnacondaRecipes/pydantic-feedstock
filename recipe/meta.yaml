@@ -1,6 +1,6 @@
 {% set name = "pydantic" %}
-{% set version = "1.9.0" %}
-{% set repo_url = "https://github.com/samuelcolvin/pydantic" %}
+{% set version = "1.10.2" %}
+{% set repo_url = "https://github.com/pydantic/pydantic" %}
 {% set docs_url = "https://pydantic-docs.helpmanual.io" %}
 
 package:
@@ -9,26 +9,27 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 742645059757a56ecd886faf4ed2441b9c0cd406079c2b4bee51bcc3fbcd510a
+  sha256: 91b8e218852ef6007c2b98cd861601c6a09f1aa32bbbb74fab5b1c33d4a1e410
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
-  skip: true  # [py<36]
+  skip: true  # [py<37]
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - python
-    - cython
+    - cython >=0.29.32
     - pip
     - setuptools
     - wheel
   run:
     - python
-    - dataclasses >=0.6  # [py<37]
-    - typing-extensions >=3.7.4.3
+    - typing-extensions >=4.1.0
+  run_constrained:
+    - email-validator >=1.0.3
 
 test:
   imports:
@@ -43,11 +44,13 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  license_url: https://github.com/{{ name }}/{{ name }}/blob/v{{ version }}/LICENSE
   summary: Data validation and settings management using python type hinting
   description: |
     Data validation and settings management using python type hinting.
     See documentation <{{ docs_url }}> for more details.
   doc_url: {{ docs_url }}
+  doc_source_url: https://github.com/pydantic/pydantic/tree/main/docs
   dev_url: {{ repo_url }}
 
 extra:
