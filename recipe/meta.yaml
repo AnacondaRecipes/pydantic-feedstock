@@ -1,7 +1,7 @@
 {% set name = "pydantic" %}
 {% set version = "1.8.2" %}
-{% set repo_url = "https://github.com/samuelcolvin/pydantic" %}
-{% set docs_url = "https://pydantic-docs.helpmanual.io" %}
+{% set repo_url = "https://github.com/pydantic/pydantic" %}
+{% set docs_url = "https://docs.pydantic.dev" %}
 
 package:
   name: {{ name }}
@@ -12,8 +12,8 @@ source:
   sha256: 26464e57ccaafe72b7ad156fdaa4e9b9ef051f69e175dbbb463283000c05ab7b
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  number: 1
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
   skip: true  # [py<36]
 
 requirements:
@@ -22,12 +22,12 @@ requirements:
   host:
     - python
     - pip
-    - cython  # [not win]
+    - cython 0.29.32  # [not win]
     - setuptools
     - wheel
   run:
     - python
-    - dataclasses >=0.6  # [py37]
+    - dataclasses >=0.6  # [py<37]
     - typing-extensions >=3.7.4.3
 
 test:
