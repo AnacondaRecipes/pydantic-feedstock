@@ -1,5 +1,5 @@
 {% set name = "pydantic" %}
-{% set version = "1.10.2" %}
+{% set version = "1.10.8" %}
 {% set repo_url = "https://github.com/pydantic/pydantic" %}
 {% set docs_url = "https://pydantic-docs.helpmanual.io" %}
 
@@ -9,11 +9,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 91b8e218852ef6007c2b98cd861601c6a09f1aa32bbbb74fab5b1c33d4a1e410
+  sha256: 1410275520dfa70effadf4c21811d755e7ef9bb1f1d077a21958153a92c8d9ca
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
   skip: true  # [py<37]
 
 requirements:
@@ -21,23 +21,31 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
-    - cython >=0.29.32
+    - hatchling
+   # - hatch-fancy-pypi-readme >=22.5.0
     - pip
     - setuptools
     - wheel
   run:
     - python
-    - typing-extensions >=4.1.0
+    - typing-extensions >=4.6.1
+    - annotated-types >=0.4.0
+    - pydantic-core 0.38.0
   run_constrained:
-    - email-validator >=1.0.3
+    - email-validator >=2.0.0
 
 test:
   imports:
     - {{ name }}
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest
+    - pytest tests
 
 about:
   home: {{ repo_url }}
