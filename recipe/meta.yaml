@@ -12,7 +12,7 @@ source:
   sha256: 0fe8a415cea8f340e7a9af9c54fc71a649b43e8ca3cc732986116b3cb135d303
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
   skip: true  # [py<37]
 
@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
-    - cython 0.29.32
+    - cython 0.29
     - pip
     - setuptools
     - wheel
