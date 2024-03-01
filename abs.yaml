@@ -1,2 +1,3 @@
 channels:
   - http://staging.continuum.io/prefect/fs/pydantic-core-feedstock/pr1/75c2ef6
+  - http://staging.continuum.io/prefect/fs/annotated-types-feedstock
