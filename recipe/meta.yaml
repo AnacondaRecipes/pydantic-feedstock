@@ -24,7 +24,6 @@ requirements:
     - m2-patch  # [win]
   host:
     - python
-    - cython 0.29
     - pip
     - setuptools
     - wheel
