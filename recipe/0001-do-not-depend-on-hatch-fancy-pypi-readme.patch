@@ -5,13 +5,12 @@
 -requires = ['hatchling', 'hatch-fancy-pypi-readme>=22.5.0']
 +requires = ['hatchling']
  build-backend = 'hatchling.build'
- 
+
  [tool.hatch.version]
-@@ -134,22 +134,6 @@
- Source = 'https://github.com/pydantic/pydantic'
+@@ -170,22 +170,6 @@
  Changelog = 'https://docs.pydantic.dev/latest/changelog/'
- 
--[tool.hatch.metadata.hooks.fancy-pypi-readme]
+
+ [tool.hatch.metadata.hooks.fancy-pypi-readme]
 -content-type = 'text/markdown'
 -# construct the PyPI readme from README.md and HISTORY.md
 -fragments = [
@@ -20,7 +19,7 @@
 -    {path = "HISTORY.md", pattern = "(.+?)<!-- package description limit -->"},
 -    {text = "\n... see [here](https://docs.pydantic.dev/changelog/#v0322-2019-08-17) for earlier changes.\n"},
 -]
--# convert GitHuB issue/PR numbers and handles to links
+-# convert GitHub issue/PR numbers and handles to links
 -substitutions = [
 -    {pattern = '(\s+)#(\d+)', replacement = '\1[#\2](https://github.com/pydantic/pydantic/issues/\2)'},
 -    {pattern = '(\s+)@([\w\-]+)', replacement = '\1[@\2](https://github.com/\2)'},
