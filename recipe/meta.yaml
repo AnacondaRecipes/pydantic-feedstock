@@ -8,8 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6f62c13d067b0755ad1c21a34bdd06c0c12625a22b0fc09c6b149816604f7c2a
-  patches:
-    - 0001-do-not-depend-on-hatch-fancy-pypi-readme.patch
+  # patches:
+  #   - 0001-do-not-depend-on-hatch-fancy-pypi-readme.patch
 
 build:
   number: 0
@@ -24,12 +24,14 @@ requirements:
     - python
     - pip
     - hatchling
+    - hatch-fancy-pypi-readme >=22.5.0
   run:
     - python
     - typing-extensions >=4.6.1
     - annotated-types >=0.4.0
     - pydantic-core ==2.21.0
     - tzdata  # [py>=39]
+
   run_constrained:
     - email-validator >=2.0.0
 
