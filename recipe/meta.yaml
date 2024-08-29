@@ -23,7 +23,8 @@ requirements:
     - hatch-fancy-pypi-readme >=22.5.0
   run:
     - python
-    - typing-extensions >=4.6.1
+    - typing-extensions >=4.6.1   # [py<313]
+    - typing-extensions >=4.12.2  # [py>=313]
     - annotated-types >=0.4.0
     - pydantic-core ==2.20.1
 
