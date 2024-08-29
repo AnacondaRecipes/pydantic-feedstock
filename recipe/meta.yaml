@@ -26,7 +26,6 @@ requirements:
     - typing-extensions >=4.6.1
     - annotated-types >=0.4.0
     - pydantic-core ==2.20.1
-    - tzdata  # [py>=39]
 
   run_constrained:
     - email-validator >=2.0.0
