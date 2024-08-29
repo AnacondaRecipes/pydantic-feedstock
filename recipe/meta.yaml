@@ -27,7 +27,6 @@ requirements:
     - typing-extensions >=4.12.2  # [py>=313]
     - annotated-types >=0.4.0
     - pydantic-core ==2.20.1
-
   run_constrained:
     - email-validator >=2.0.0
 
