@@ -1,5 +1,5 @@
 {% set name = "pydantic" %}
-{% set version = "2.8.2" %}
+{% set version = "2.10.3" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6f62c13d067b0755ad1c21a34bdd06c0c12625a22b0fc09c6b149816604f7c2a
+  sha256: cb5ac360ce894ceacd69c403187900a02c4b20b693a9dd1d643e1effab9eadf9
 
 
 build:
