@@ -98,6 +98,7 @@ test:
     - jsonschema
     - pytz
     - faker
+    - eval-type-backport  # [py<310]
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
