@@ -29,22 +29,8 @@ requirements:
   run_constrained:
     - email-validator >=2.0.0
 
-# E   ModuleNotFoundError: No module named 'dirty_equals'
-{% set ignore_tests = " --ignore=tests/test_aliases.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_assert_in_validators.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_config.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_dataclasses.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_datetime.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_deprecated_validate_arguments.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_discriminated_union.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_docs.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_edge_cases.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_generics.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_internal.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_json_schema.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_types.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_validators.py" %}
-{% set ignore_tests = ignore_tests + " --ignore=tests/test_validators_dataclass.py" %}
+# E   ModuleNotFoundError: No module named 'pytest_examples'
+{% set ignore_tests = " --ignore=tests/test_docs.py" %}
 # >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
 # E       Failed: DID NOT RAISE <class 'UserWarning'>
 {% set deselect_tests = " --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning" %}
@@ -99,6 +85,7 @@ test:
     - pytz
     - faker
     - eval-type-backport  # [py<310]
+    - dirty-equals
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
