@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pydantic-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7b8fa15b831a4bbde9d5b84028641ac3080a4ca2cbd4a621a661687e741624fd
 
 build:
@@ -29,10 +29,10 @@ requirements:
   run_constrained:
     - email-validator >=2.0.0
 
- # E   ModuleNotFoundError: No module named 'pytest_examples'
+# E   ModuleNotFoundError: No module named 'pytest_examples'
 {% set ignore_tests = " --ignore=tests/test_docs.py" %}
- # >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
- # E       Failed: DID NOT RAISE <class 'UserWarning'>
+# >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
+# E       Failed: DID NOT RAISE <class 'UserWarning'>
 {% set deselect_tests = " --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning" %}
 test:
   source_files:
