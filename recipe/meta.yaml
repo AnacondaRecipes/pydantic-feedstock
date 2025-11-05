@@ -1,5 +1,5 @@
 {% set name = "pydantic" %}
-{% set version = "2.12.2" %}
+{% set version = "2.12.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7b8fa15b831a4bbde9d5b84028641ac3080a4ca2cbd4a621a661687e741624fd
+  sha256: 1da1c82b0fc140bb0103bc1441ffe062154c8d38491189751ee00fd8ca65ce74
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
   skip: true  # [py<39]
 
 requirements:
@@ -89,7 +89,7 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    - pytest -v tests {{ ignore_tests }} {{ deselect_tests }}
+    - pytest -ra -vv --tb=short tests {{ ignore_tests }} {{ deselect_tests }}
 
 about:
   home: https://github.com/pydantic/pydantic
@@ -100,7 +100,7 @@ about:
   description: |
     Data validation and settings management using python type hinting.
     See documentation doc_url for more details.
-  doc_url: https://docs.pydantic.dev/latest
+  doc_url: https://docs.pydantic.dev
   dev_url: https://github.com/pydantic/pydantic
 
 extra:
