@@ -1,5 +1,5 @@
 {% set name = "pydantic" %}
-{% set version = "2.12.4" %}
+{% set version = "2.12.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0f8cb9555000a4b5b617f66bfd2566264c4984b27589d3b845685983e8ea85ac
+  sha256: 4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49
 
 build:
   number: 0
@@ -27,7 +27,7 @@ requirements:
     - pydantic-core ==2.41.5
     - typing-inspection >=0.4.2
   run_constrained:
-    - tzdata  # [win]
+    - tzdata  # [win and py>39]
     - email-validator >=2.0.0
 
 # E   ModuleNotFoundError: No module named 'pytest_examples'
