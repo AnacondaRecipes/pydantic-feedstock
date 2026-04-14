@@ -1,13 +1,18 @@
 {% set name = "pydantic" %}
-{% set version = "2.12.5" %}
+{% set version = "2.13.0" %}
+{% set ignore_tests = " --ignore=tests/test_docs.py" %}
+{% set deselect_tests = " --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning" %}
 
+# E   ModuleNotFoundError: No module named 'pytest_examples'
+# >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
+# E       Failed: DID NOT RAISE <class 'UserWarning'>
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49
+  sha256: b89b575b6e670ebf6e7448c01b41b244f471edd276cd0b6fe02e7e7aca320070
 
 build:
   number: 0
@@ -30,11 +35,6 @@ requirements:
     - tzdata  # [win and py>39]
     - email-validator >=2.0.0
 
-# E   ModuleNotFoundError: No module named 'pytest_examples'
-{% set ignore_tests = " --ignore=tests/test_docs.py" %}
-# >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
-# E       Failed: DID NOT RAISE <class 'UserWarning'>
-{% set deselect_tests = " --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning" %}
 test:
   source_files:
     - tests
