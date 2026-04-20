@@ -27,7 +27,7 @@ requirements:
     - pydantic-core ==2.46.2
     - typing-inspection >=0.4.2
   run_constrained:
-    - tzdata  # [win and py>39]
+    - tzdata  # [win and py>=39]
     - email-validator >=2.0.0
 
 # E   ModuleNotFoundError: No module named 'pytest_examples'
