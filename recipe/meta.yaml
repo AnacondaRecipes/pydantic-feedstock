@@ -100,7 +100,7 @@ about:
   description: |
     Data validation and settings management using python type hinting.
     See documentation doc_url for more details.
-  doc_url: https://pydantic.dev/docs/
+  doc_url: https://pydantic.dev/docs
   dev_url: https://github.com/pydantic/pydantic
 
 extra:
