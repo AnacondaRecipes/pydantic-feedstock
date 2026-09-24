@@ -34,7 +34,16 @@ requirements:
 {% set ignore_tests = " --ignore=tests/test_docs.py" %}
 # >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
 # E       Failed: DID NOT RAISE <class 'UserWarning'>
+# pytest 9.1 removed the deprecated callable-form of pytest.warns()/raises(); pydantic 2.13.5's
+# bundled tests still call `pytest.warns(Warning, lambda: ..., match=...)` in these 5 tests,
+# which now raises TypeError instead of checking the warning. Already fixed on pydantic's main
+# branch (converted to `with pytest.warns(...)` blocks) but not yet released.
 {% set deselect_tests = " --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_fields" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_fields_deprecated_class" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_computed_field_deprecated" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_with_boolean" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_field_forward_annotation" %}
 test:
   source_files:
     - tests
