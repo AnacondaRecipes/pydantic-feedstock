@@ -2,11 +2,11 @@
 {% set version = "2.14.1" %}
 {% set ignore_tests = " --ignore=tests/test_docs.py" %}
 {% set deselect_tests = " --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning" %}
-{% set deselect_tests = 'deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_fields"' %}
-{% set deselect_tests = 'deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_fields_deprecated_class"' %}
-{% set deselect_tests = 'deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_computed_field_deprecated"' %}
-{% set deselect_tests = 'deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_with_boolean"' %}
-{% set deselect_tests = 'deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_field_forward_annotation"' %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_fields" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_fields_deprecated_class" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_computed_field_deprecated" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_with_boolean" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_deprecated_fields.py::test_deprecated_field_forward_annotation" %}
 
 # E   ModuleNotFoundError: No module named 'pytest_examples'
 # >       with pytest.raises(UserWarning, match="Items 'a', 'b' on TypedDict class 'TD' are using the `ReadOnly` qualifier"):
