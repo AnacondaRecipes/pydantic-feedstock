@@ -56,7 +56,8 @@ test:
     - pydantic._internal._generate_schema
     - pydantic._internal._generics
     - pydantic._internal._import_utils
-    - pydantic._internal._internal_dataclass
+    # Removed in 2.14.1; the import fails with ModuleNotFoundError.
+    # - pydantic._internal._internal_dataclass
     - pydantic._internal._mock_val_ser
     - pydantic._internal._model_construction
     - pydantic._internal._repr
