@@ -1,5 +1,5 @@
 {% set name = "pydantic" %}
-{% set version = "2.14.1" %}
+{% set version = "2.14.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 94f478203dd03404682a1ada216965651dd74b1d2d5ffd62e00e0837caab5c26
+  sha256: 1054f237f4d4733e5a30e1e2333bd33a2004ab9ab1510bd053a9a31bb48e232d
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - python
     - typing_extensions >=4.16.0
     - annotated-types >=0.6.0
-    - pydantic-core ==2.50.1
+    - pydantic-core ==2.50.4
     - typing-inspection >=0.4.4
   run_constrained:
     - tzdata  # [win and py>=39]
